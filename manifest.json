@@ -4,7 +4,7 @@
   "description": "Eliminate distractions for fullstackers.",
   "version": "1.0",
   "browser_action": {
-    "default_icon": "icon.ico",
+    "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
   "permissions": [
