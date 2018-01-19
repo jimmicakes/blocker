@@ -32,6 +32,7 @@
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
     -->
     <script src="popup.js"></script>
+    <script type="text/javascript"></script>
 </head>
 
 <body>
@@ -39,8 +40,8 @@
     <div id="container">
         <span>Select Mode</span>
         <select id="dropdown">
-            <option value="work">Work</option>
-            <option value="play">Play</option>
+            <option value="work" id="work">Work</option>
+            <option value="play" id="play">Play</option>
         </select>
     </div>
 </body>

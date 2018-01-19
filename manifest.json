@@ -4,6 +4,11 @@
   "description": "Eliminate distractions for fullstackers.",
   "version": "1.0",
   "author": "Jimmi Chen",
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
   "icons": {
     "16": "icon.png",
     "48": "icon.png",
@@ -19,9 +24,8 @@
     "activeTab",
     "webRequest",
     "webRequestBlocking",
-    "storage",
-    "http://*/*",
-    "https://*/*"
+    "<all_urls>",
+    "storage"
   ],
   "homepage_url": "https://learn.fullstackacademy.com/",
   "chrome_url_overrides": {
