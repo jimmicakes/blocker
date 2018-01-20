@@ -1,10 +1,14 @@
-let port = chrome.runtime.connect({ name: "communicate with background" });
+const port = chrome.runtime.connect({ name: "communicate with background" });
+
 document.addEventListener('DOMContentLoaded', () => {
     let dropdown = document.getElementById('dropdown');
+    console.log(dropdown.value);
+    chrome.storage.sync.get('mode', mode =>
+        dropdown.value = mode.mode);
+
     dropdown.addEventListener('change', () => {
-        let mode = dropdown.value;
+        var mode = dropdown.value;
+        chrome.storage.sync.set({ mode });
         port.postMessage({ mode }); //send mode selected to background
-        dropdown.getElementById(mode).selected = 'selected';//mark and keep track of the selected mode
     })
 });
-

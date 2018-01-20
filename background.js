@@ -1,4 +1,5 @@
-let mode;
+let mode = 'work'; //set to work on default when extension launched
+if (mode === 'work') chrome.storage.sync.set({ mode: 'work' }); //reset storage
 
 chrome.runtime.onConnect.addListener(function (port) {
     port.onMessage.addListener(function (msg) {
@@ -9,8 +10,13 @@ chrome.runtime.onConnect.addListener(function (port) {
 
 chrome.webRequest.onBeforeRequest.addListener(
     details => {
-        if (mode !== 'play') return { cancel: true };
+        if (mode === 'work') return { cancel: true };
     },
-    { urls: ["*://www.facebook.com/*", "*://www.reddit.com/*", "*://www.instagram.com/*", "*://www.amazon.com/*", "*://9gag.com/*"] },
+    {
+        urls: ["*://www.facebook.com/*",
+            "*://www.reddit.com/*",
+            "*://www.instagram.com/*",
+            "*://www.amazon.com/*",
+            "*://9gag.com/*"]
+    },
     ["blocking"]);
-
