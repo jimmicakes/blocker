@@ -1,13 +1,15 @@
-let mode = 'work'; //set to work on default when extension launched
-if (mode === 'work') chrome.storage.sync.set({ mode: 'work' }); //reset storage
+//background.js interact with web requests
+//It can be used to block specific websites
 
-chrome.runtime.onConnect.addListener(function (port) {
-    port.onMessage.addListener(function (msg) {
-        mode = msg.mode; //receives the mode sent by popup.js
-    });
+//set default mode to when extension launched
+let mode = 'work';
+chrome.storage.sync.set({ mode });
+
+chrome.runtime.onConnect.addListener(port => {
+    port.onMessage.addListener(msg => mode = msg.mode) //receives the mode sent by popup.js
 });
 
-
+//these requests will be cancelled, don't have to check the sites' contents. 
 chrome.webRequest.onBeforeRequest.addListener(
     details => {
         if (mode === 'work') return { cancel: true };
