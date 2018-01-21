@@ -8,8 +8,8 @@ chrome.storage.sync.get('mode', mode => { //check current mode
         let host = document.location.hostname;
 
         //set whitelist to pass and keywords for filtering
-        let whitelist = /fullstack|github|wikipedia|google|stackoverflow|mozila|javascript/;
-        let keywords = ['game', 'gaming', 'dating', 'fun', 'life'];
+        let whitelist = /fullstack|github|slack|wikipedia|google|stackoverflow|mozila|chrome/;
+        let keywords = ['game', 'gaming', 'dating'];
 
         //check if the site is in the whitelist
         let isGood = host.search(whitelist) > -1 ? true : false;
