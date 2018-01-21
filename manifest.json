@@ -37,7 +37,7 @@
     "webRequestBlocking",
     "storage"
   ],
-  "homepage_url": "https://learn.fullstackacademy.com/",
+  "homepage_url": "https://github.com/jimmicakes/blocker",
   "chrome_url_overrides": {
     "newtab": "newtab.html"
   }

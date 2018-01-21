@@ -8,7 +8,7 @@ chrome.storage.sync.get('mode', mode => { //check current mode
         let host = document.location.hostname;
 
         //set whitelist to pass and keywords for filtering
-        let whitelist = /fullstack|wikipedia|google|stackoverflow|mozila|javascript/;
+        let whitelist = /fullstack|github|wikipedia|google|stackoverflow|mozila|javascript/;
         let keywords = ['game', 'gaming', 'dating', 'fun', 'life'];
 
         //check if the site is in the whitelist
@@ -19,7 +19,7 @@ chrome.storage.sync.get('mode', mode => { //check current mode
                     //you can get a glimpse of the site before it's blocked
                     document.body.setAttribute('style', 'display:none!important');
                     alert('Site Blocked');
-                    break;
+                    break; //stop when the first keyword is found
                 }
             }
         }
